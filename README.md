@@ -4,7 +4,7 @@ This repo is an example of a simple MERN application containing CRUD functionali
 
 ## Setup
 
-Create a .env file in the server directory to store your preferred API port and your MongoDB database route with the following constonants:
+Create a .env file in the server directory to store your preferred API port and your MongoDB database route with the following constants:
 
 `API_PORT = 3001`
 `DB_ROUTE = 'your db route here'`
