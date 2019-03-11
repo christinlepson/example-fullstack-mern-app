@@ -43,6 +43,6 @@ app.get('*', (req, res) => {
 });
 
 // launch our backend into a port
-app.listen(process.env.API_PORT, () => 
+app.listen(process.env.PORT || process.env.API_PORT, () => 
     console.log(`LISTENING ON PORT ${process.env.API_PORT}`)
 );
