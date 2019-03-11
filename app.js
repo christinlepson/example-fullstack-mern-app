@@ -11,7 +11,7 @@ dotenv.config();
 
 const app = express();
 const router = express.Router();
-const reactFolder = path.resolve('../client/build');
+const reactFolder = path.resolve('./client/build');
 
 app.use(cors());
 app.use(express.static( reactFolder ));
@@ -31,7 +31,7 @@ db.on('error', console.error.bind(console, "MongoDB connection error:"));
 // Handle body parsing and logging middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(logger("dev"));
+app.use(logger("combined"));
 
 // Set up routes from routers folder and use for /api route
 routes(router);

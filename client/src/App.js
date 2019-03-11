@@ -22,15 +22,21 @@ class App extends Component {
       let interval = setInterval(this.getDataFromDb, 3000);
       this.setState({ intervalIsSet: interval });
     }
+    window.addEventListener("beforeunload", (e) => {  
+        e.preventDefault();
+        return this.clearDbListening();
+    });
   }
 
-  // never let a process live forever 
-  // always kill a process everytime we are done using it
-  componentWillUnmount() {
+  clearDbListening = () => {
     if (this.state.intervalIsSet) {
-      clearInterval(this.state.intervalIsSet);
-      this.setState({ intervalIsSet: null });
-    }
+        clearInterval(this.state.intervalIsSet);
+        this.setState({ intervalIsSet: null });
+      }
+  }
+
+  componentWillUnmount() {
+
   }
 
     getDataFromDb = () => {
@@ -106,7 +112,7 @@ class App extends Component {
             style={{ width: "200px" }}
           />
           <button onClick={() => this.putDataToDB(this.state.message)}>
-            ADD
+            ADD ENTRY
           </button>
         </div>
         <div style={{ padding: "10px" }}>
