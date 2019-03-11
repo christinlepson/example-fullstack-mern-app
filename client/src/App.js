@@ -19,7 +19,7 @@ class App extends Component {
   componentDidMount() {
     this.getDataFromDb();
     if (!this.state.intervalIsSet) {
-      let interval = setInterval(this.getDataFromDb, 1000);
+      let interval = setInterval(this.getDataFromDb, 3000);
       this.setState({ intervalIsSet: interval });
     }
   }
